@@ -22,20 +22,20 @@ geschlossen und der GSV-6CPU ausgeschaltet.
 Mögliche Probleme:
 Ab Raspberry PI 3 blockiert initial das Bluetooth-Modul die serielle Schnittstelle. Falls noch nicht geschehen, führen Sie bitte folgende Schritte aus:
 
-# Stop and disable ttyS0.service
+- Stop and disable ttyS0.service
 sudo systemctl stop serial-getty@ttyS0.service
 sudo systemctl disable serial-getty@ttyS0.service
 
-# Edit /boot/cmdline.txt
+- Edit /boot/cmdline.txt
 sudo nano /boot/cmdline.txt
-# remove: console=serial0,115200b add behind console=tty1: core_freq=250
+- remove: console=serial0,115200b add behind console=tty1: core_freq=250
 Ctrl + O
 Ctrl + X
 
-# Edit /boot/config.txt
+- Edit /boot/config.txt
 sudo nano /boot/config.txt
 
-# add on the bottom
+- add on the bottom
 dtoverlay=pi3-miniuart-bt
 enable_uart=1
 force_turbo=1
